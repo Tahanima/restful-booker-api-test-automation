@@ -8,8 +8,7 @@ import lombok.extern.jackson.Jacksonized;
 /**
  * @author tahanima
  */
-@Jacksonized
-@Builder
+@Jacksonized @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthRequestPayload {
     @JsonProperty

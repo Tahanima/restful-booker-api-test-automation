@@ -15,6 +15,7 @@ public final class BookingApi {
     private BookingApi() {}
 
     private static final String ENDPOINT = BASE_URL + BOOKING_ENDPOINT;
+    private static final String MEDIA_TYPE_JSON = "application/json";
 
     public static Response getAllBookingIds() {
         return given()
@@ -38,9 +39,9 @@ public final class BookingApi {
                 .get(ENDPOINT);
     }
 
-    public static Response getBookingById(String id) {
+    public static Response getBookingById(int id) {
         return given()
-                .accept("application/json")
+                .accept(MEDIA_TYPE_JSON)
                 .when()
                 .get(ENDPOINT + id);
     }
@@ -48,9 +49,36 @@ public final class BookingApi {
     public static Response createBooking(BookingRequestPayload bookingRequestPayload) {
         return given()
                 .contentType(ContentType.JSON)
-                .accept("application/json")
+                .accept(MEDIA_TYPE_JSON)
                 .body(bookingRequestPayload)
                 .when()
-                .get(ENDPOINT);
+                .post(ENDPOINT);
+    }
+
+    public static Response updateBooking(BookingRequestPayload bookingRequestPayload, int id, String authToken) {
+        return given()
+                .contentType(ContentType.JSON)
+                .accept(MEDIA_TYPE_JSON)
+                .header("Cookie", "token=" + authToken)
+                .body(bookingRequestPayload)
+                .when()
+                .put(ENDPOINT + id);
+    }
+
+    public static Response partialUpdateBooking(BookingRequestPayload bookingRequestPayload, int id, String authToken) {
+        return given()
+                .contentType(ContentType.JSON)
+                .accept(MEDIA_TYPE_JSON)
+                .header("Cookie", "token=" + authToken)
+                .body(bookingRequestPayload)
+                .when()
+                .patch(ENDPOINT + id);
+    }
+
+    public static Response deleteBooking(int id, String authToken) {
+        return given()
+                .header("Cookie", "token=" + authToken)
+                .when()
+                .delete(ENDPOINT + id);
     }
 }
