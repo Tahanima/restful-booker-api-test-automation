@@ -12,7 +12,7 @@ The project uses the following:
 - *[REST Assured](https://rest-assured.io/)* as the REST API test automation framework.
 - *[Lombok](https://projectlombok.org/)* to generate getters, setters and builders.
 - *[JUnit 5](https://junit.org/junit5/)* as the testing framework.
-- *[Hamcrest](http://hamcrest.org/JavaHamcrest/)* as the assertion library.
+- *[Hamcrest](http://hamcrest.org/JavaHamcrest/)* as the matcher library.
 - *[Datafaker](https://www.datafaker.net/)* as the fake data generation library.
 - *[Gradle](https://gradle.org/)* as the Java build tool.
 - *[IntelliJ IDEA](https://www.jetbrains.com/idea/)* as the IDE.
