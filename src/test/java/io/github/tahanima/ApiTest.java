@@ -71,7 +71,7 @@ class ApiTest {
 
     @Test
     void testGetBookingByIdReturns200() {
-        Response response = BookingApi.getBookingById("21435");
+        Response response = BookingApi.getBookingById("1");
 
         assertThat(response.statusCode(), equalTo(SC_OK));
     }
