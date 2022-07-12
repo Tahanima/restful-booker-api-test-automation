@@ -9,12 +9,12 @@ import lombok.extern.jackson.Jacksonized;
 /**
  * @author tahanima
  */
-@Jacksonized @Builder @EqualsAndHashCode
+@Jacksonized
+@Builder
+@EqualsAndHashCode
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingDates {
-    @JsonProperty
-    private String checkin;
+  @JsonProperty private String checkin;
 
-    @JsonProperty
-    private String checkout;
+  @JsonProperty private String checkout;
 }
