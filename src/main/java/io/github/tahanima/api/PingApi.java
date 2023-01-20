@@ -10,9 +10,9 @@ import static io.restassured.RestAssured.given;
  * @author tahanima
  */
 public final class PingApi {
-  private PingApi() {}
+    private PingApi() {}
 
-  public static Response healthCheck() {
-    return given().when().get(BASE_URL + PING_ENDPOINT);
-  }
+    public static Response healthCheck() {
+        return given().when().get(BASE_URL + PING_ENDPOINT);
+    }
 }

@@ -10,9 +10,9 @@ import lombok.Getter;
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingResponsePayload {
-  @JsonProperty("bookingid")
-  private int bookingId;
+    @JsonProperty("bookingid")
+    private int bookingId;
 
-  @JsonProperty("booking")
-  private BookingRequestPayload bookingRequestPayload;
+    @JsonProperty("booking")
+    private BookingRequestPayload bookingRequestPayload;
 }

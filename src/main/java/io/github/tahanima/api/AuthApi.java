@@ -12,13 +12,12 @@ import static io.restassured.RestAssured.given;
  * @author tahanima
  */
 public final class AuthApi {
-  private AuthApi() {}
+    private AuthApi() {}
 
-  public static Response createToken(AuthRequestPayload authRequestPayload) {
-    return given()
-        .contentType(ContentType.JSON)
-        .body(authRequestPayload)
-        .when()
-        .post(BASE_URL + AUTH_ENDPOINT);
-  }
+    public static Response createToken(AuthRequestPayload authRequestPayload) {
+        return given().contentType(ContentType.JSON)
+                .body(authRequestPayload)
+                .when()
+                .post(BASE_URL + AUTH_ENDPOINT);
+    }
 }

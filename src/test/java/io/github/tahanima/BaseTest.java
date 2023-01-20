@@ -15,36 +15,35 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.emptyString;
 
 /**
  * @author tahanima
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class BaseTest {
-  protected String token;
-  protected final Faker faker = new Faker();
+    protected final Faker faker = new Faker();
+    protected String token;
 
-  @BeforeAll
-  void testHealthCheckReturns201() {
-    Response response = PingApi.healthCheck();
+    @BeforeAll
+    void testHealthCheckReturns201() {
+        Response response = PingApi.healthCheck();
 
-    assertThat(response.statusCode(), equalTo(SC_CREATED));
-  }
+        assertThat(response.statusCode(), equalTo(SC_CREATED));
+    }
 
-  @BeforeEach
-  void testCreateTokenReturns200() {
-    AuthRequestPayload authRequestPayload =
-        AuthRequestPayload.builder().username("admin").password("password123").build();
+    @BeforeEach
+    void testCreateTokenReturns200() {
+        AuthRequestPayload authRequestPayload =
+                AuthRequestPayload.builder().username("admin").password("password123").build();
 
-    Response response = AuthApi.createToken(authRequestPayload);
-    token = response.as(AuthResponsePayload.class).getToken();
+        Response response = AuthApi.createToken(authRequestPayload);
+        token = response.as(AuthResponsePayload.class).getToken();
 
-    assertThat(response.statusCode(), equalTo(SC_OK));
-  }
+        assertThat(response.statusCode(), equalTo(SC_OK));
+    }
 
-  @Test
-  void testCreateTokenReturnsNonEmptyToken() {
-    assertThat(token, is(not(emptyString())));
-  }
+    @Test
+    void testCreateTokenReturnsNonEmptyToken() {
+        assertThat(token, is(not(emptyString())));
+    }
 }

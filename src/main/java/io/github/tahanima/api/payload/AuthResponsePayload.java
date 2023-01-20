@@ -8,5 +8,5 @@ import lombok.Getter;
  */
 @Getter
 public class AuthResponsePayload {
-  @JsonProperty private String token;
+    @JsonProperty private String token;
 }

@@ -12,7 +12,7 @@ import lombok.extern.jackson.Jacksonized;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthRequestPayload {
-  @JsonProperty private String username;
+    @JsonProperty private String username;
 
-  @JsonProperty private String password;
+    @JsonProperty private String password;
 }
